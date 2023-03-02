@@ -1,4 +1,4 @@
-const sequelize = require('../config/connection');
+const sequelize = require("../connection/connection");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -7,17 +7,17 @@ const seedAll = async () => {
   await seedCategories();
   console.log('\n----- CATEGORIES SEEDED -----\n');
 
-  await seedPosts();
+  await seedUsers();
   console.log('\n----- PRODUCTS SEEDED -----\n');
 
-  await seedUsers();
+  await seedPosts();
   console.log('\n----- TAGS SEEDED -----\n');
 
   process.exit(0);
 };
 seedAll();
 //////////////////////////////////////////////////////////////////////////
-const { Category } = require('../models/Category');
+const { Category } = require("../models");
 const categoryData = [
     {
         category_name: 'Programming',
@@ -31,7 +31,7 @@ const categoryData = [
 ];
 const seedCategories = () => Category.bulkCreate(categoryData);
 ///////////////////////////////////////////////////////////////////////
-const { User } = require('../models/User');
+const { User } = require('../models');
 const userData = [
     {
         user_name: 'cooldude141',
@@ -51,7 +51,7 @@ const userData = [
   ];
 const seedUsers = () => User.bulkCreate(userData);
 //////////////////////////////////////////////////////////////////////////
-const { Post } = require('../models/Post');
+const { Post } = require('../models');
 const postData = [
   {
     post_title: 'Mario sucks',

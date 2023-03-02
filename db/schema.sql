@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS fake_db
-CREATE DATABASE fake_db
-USE fake_db
+DROP DATABASE IF EXISTS fake_db;
+CREATE DATABASE fake_db;
+USE fake_db;
