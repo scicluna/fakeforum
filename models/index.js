@@ -10,7 +10,5 @@ User.hasMany(Post)
 
 Category.hasMany(Post)
 
-
-
 module.exports = {Category,Post,User,};
   
