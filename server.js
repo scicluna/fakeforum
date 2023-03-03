@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars');
 const path = require("path")
+const routes = require("./routes/index")
 
 const sequelize = require("./connection/connection")
 const app = express()
@@ -16,8 +17,10 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.render('forum')
+    res.redirect('/allposts')
 })
+
+app.use(routes)
 
 sequelize.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log(`Now listening on port http://localhost:${PORT}`))

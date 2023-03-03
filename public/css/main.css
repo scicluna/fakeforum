@@ -15,3 +15,11 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.postcard {
+    background-color: #343a40d9;
+}
+
+.postcard:nth-child(1){
+    margin-top: 6px;
+}
