@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+
+}
+
+body {
+    background-color: #343a40f1;
+    color: rgba(255, 255, 255, 0.806);
+}
+
+.postnav {
+    display: flex;
+    justify-content: space-between;
+}
