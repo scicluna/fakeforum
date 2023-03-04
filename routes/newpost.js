@@ -16,17 +16,24 @@ router.post('/', async (req, res)=>{
         const {title, body, categoryid} = req.body
         if (!title || !body || !categoryid) return res.status(500).json({msg: "Oops, something went wrong."})
 
+        const users = await User.findAll()
+        const plainUsers = users.map((user)=>user.get({plain:true}))
+        
+        console.log(title, body, categoryid, req.session.userid, plainUsers[parseInt(req.session.userid)-1].user_name)
 
         const newPost = await Post.create({
             post_title: title,
             post_body: body,
             category_id: categoryid,
-            user_id: req.session.userid
+            user_id: req.session.userid,
+            poster_name: plainUsers[parseInt(req.session.userid)-1].user_name
         })
+        console.log(newPost)
         res.redirect('/allposts')
     }
     catch (err){
-        res.json(err)
+        console.log(err)
+        res.status(500).json({err})
     }
 })
 

@@ -38,6 +38,11 @@ Post.init(
                 key: 'id',
                 unique: false
             }
+        },
+
+        poster_name: {
+            type: DataTypes.STRING,
+            unique: false
         }
     },
     {
