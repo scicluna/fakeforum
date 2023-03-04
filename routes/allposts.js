@@ -5,7 +5,18 @@ router.get('/', async (req, res)=>{
     try {
         const postData = await Post.findAll({ include: { all: true, nested: true}}) 
         const posts = postData.map((post) => post.get({ plain: true}))
-        console.log(posts)
+
+        res.render('posts', {posts})
+    }
+    catch (err) {
+        res.render(err)
+    }
+})
+
+router.get('/:id', async (req, res)=>{
+    try {
+        const postData = await Post.findAll({ include: { all: true, nested: true}, where: {category_id: req.params.id}},) 
+        const posts = postData.map((post) => post.get({ plain: true}))
 
         res.render('posts', {posts})
     }
