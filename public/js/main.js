@@ -47,3 +47,23 @@ async function logOut(e){
     else alert('Logout failed somehow.')
 }
 if (document.querySelector(".logout")) document.querySelector(".logout").addEventListener("click", logOut)
+
+async function newPost(e){
+    e.preventDefault()
+
+    const categories = ["Programming", "Gaming", "General"] //any better solutions to this?
+    const category = document.querySelector(".categoryselect").value.trim()
+    
+    const title = document.querySelector("#posttitle").value.trim()
+    const body = document.querySelector("#postarea").value.trim()
+    const categoryid = categories.indexOf(category)+1
+
+    const response = await fetch('/newpost', {
+        method: 'POST',
+        body: JSON.stringify({title, body, categoryid}),
+        headers: {'Content-Type': 'application/json'}
+    })
+    if (response.ok) document.location.replace('/allposts')
+    else alert('Failed to Post.')
+}
+if (document.querySelector(".newpost")) document.querySelector(".newpost").addEventListener("click", newPost)

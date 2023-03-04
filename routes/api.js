@@ -9,10 +9,12 @@ router.post('/users', async (req, res)=>{
         })
 
         if (!newUserData) return res.status(400).json({msg: "User not created"})
+        const plainData = newUserData.get({plain: true})
 
         req.session.save(()=>{
             req.session.loggedIn = true
             req.session.user = req.body.username
+            req.session.userid = plainData.id
             res.status(200).json({ user: newUserData, message: 'You are now logged in!' })
         })
     }
@@ -31,10 +33,13 @@ router.post('/users/login', async (req, res)=>{
         const validPassword = await userData.checkPassword(req.body.password)
         if (!validPassword) return res.status(400).json({msg: "Not a valid login or password"})
 
+        const plainData = userData.get({plain: true})
  
         req.session.save((err)=>{
             req.session.loggedIn = true
             req.session.user = req.body.username
+            req.session.userid = plainData.id
+            console.log(req.session)
             res.status(200).json({ user: userData, message: 'You are now logged in!' })
         })
         

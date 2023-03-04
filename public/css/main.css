@@ -24,7 +24,7 @@ body {
     margin-top: 6px;
 }
 
-.loginform, .signupform{
+.loginform, .signupform, .newpostform{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -35,4 +35,12 @@ body {
 .navcollapse {
     display: flex;
     flex-direction: column;
+}
+
+.newpostform>.form-group{
+    width:40%;
+}
+
+.newpostform>.form-group:nth-child(1){
+    width:20%;
 }

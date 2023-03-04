@@ -14,18 +14,19 @@ router.get('/', async (req, res)=>{
 router.post('/', async (req, res)=>{
     try{
         const {title, body, categoryid} = req.body
-        if (!title || !body || !categoryid || !username) return res.status(500).json({msg: "Oops, something went wrong."})
+        if (!title || !body || !categoryid) return res.status(500).json({msg: "Oops, something went wrong."})
+
 
         const newPost = await Post.create({
             post_title: title,
             post_body: body,
             category_id: categoryid,
-            user_id: req.session.username
+            user_id: req.session.userid
         })
-        res.json(newPost).redirect('/posts')
+        res.redirect('/allposts')
     }
     catch (err){
-
+        res.json(err)
     }
 })
 

@@ -17,8 +17,6 @@ app.use(session(sess));
 
 const hbs = exphbs.create({});
 
-
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
@@ -38,9 +36,7 @@ sequelize.sync({force: false}).then(() => {
 
 //TODOs
 /////////////////////////////////////////
-//SORT THE MESSAGES
-//BY USER AND BY CATEGORY
-//BE ABLE TO "LOG IN" AKA CREATE A NEW USER FOR THEMESELVES
-//LOGIN FORM
-//BE ABLE TO MAKE POSTS
+//USER PROFILE THAT SHOWS THEIR POSTS
+//TIME STAMPING?
+//ORGANIZE POSTS BY TIME SOMEHOW?
 //COMMENT ON POSTS
