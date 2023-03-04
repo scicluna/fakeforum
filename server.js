@@ -6,18 +6,18 @@ const session = require('express-session');
 
 const sequelize = require("./connection/connection")
 const app = express()
-const hbs = exphbs.create({});
-
+const PORT = process.env.PORT || 3001
 // Set up sessions
 const sess = {
     secret: 'Super secret secret',
     resave: false,
     saveUninitialized: true,
-  };
-  
-  app.use(session(sess));
+  };  
+app.use(session(sess));
 
-const PORT = process.env.PORT || 3001
+const hbs = exphbs.create({});
+
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
