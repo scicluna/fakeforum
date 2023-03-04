@@ -37,6 +37,5 @@ sequelize.sync({force: false}).then(() => {
 //TODOs
 /////////////////////////////////////////
 //USER PROFILE THAT SHOWS THEIR POSTS
-//TIME STAMPING?
 //ORGANIZE POSTS BY TIME SOMEHOW?
 //COMMENT ON POSTS

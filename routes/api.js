@@ -29,7 +29,6 @@ router.post('/users/login', async (req, res)=>{
         
 
         if (!userData) return res.status(400).json({msg: "Not a valid login or password"})
-        console.log(req.session)
         const validPassword = await userData.checkPassword(req.body.password)
         if (!validPassword) return res.status(400).json({msg: "Not a valid login or password"})
 
@@ -39,7 +38,6 @@ router.post('/users/login', async (req, res)=>{
             req.session.loggedIn = true
             req.session.user = req.body.username
             req.session.userid = plainData.id
-            console.log(req.session)
             res.status(200).json({ user: userData, message: 'You are now logged in!' })
         })
         
