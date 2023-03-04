@@ -2,10 +2,20 @@ const express = require('express')
 const exphbs = require('express-handlebars');
 const path = require("path")
 const routes = require("./routes/index")
+const session = require('express-session');
 
 const sequelize = require("./connection/connection")
 const app = express()
 const hbs = exphbs.create({});
+
+// Set up sessions
+const sess = {
+    secret: 'Super secret secret',
+    resave: false,
+    saveUninitialized: true,
+  };
+  
+  app.use(session(sess));
 
 const PORT = process.env.PORT || 3001
 
