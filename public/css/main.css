@@ -31,3 +31,8 @@ body {
     width:90%;
     padding:15px;
 }
+
+.navcollapse {
+    display: flex;
+    flex-direction: column;
+}

@@ -18,7 +18,7 @@ router.get('/:id', async (req, res)=>{
         const postData = await Post.findAll({ include: { all: true, nested: true}, where: {category_id: req.params.id}},) 
         const posts = postData.map((post) => post.get({ plain: true}))
 
-        res.render('posts', {posts})
+        res.render('posts', {posts, loggedIn:req.session.loggedIn})
     }
     catch (err) {
         res.render(err)

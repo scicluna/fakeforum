@@ -36,3 +36,14 @@ async function signUp(e){
 }
 if (document.querySelector(".signupbtn")) document.querySelector(".signupbtn").addEventListener("click", signUp)
 
+async function logOut(e){
+    e.preventDefault()
+
+    const response = await fetch('/api/users/logout', {
+        method: 'POST'
+    })
+
+    if(response.ok) document.location.replace('/allposts')
+    else alert('Logout failed somehow.')
+}
+if (document.querySelector(".logout")) document.querySelector(".logout").addEventListener("click", logOut)

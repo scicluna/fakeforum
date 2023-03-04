@@ -28,12 +28,12 @@
             <a class="text-white newpostbutton" href="/allposts/3">General Posts</a>
     </nav>
     <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
+        <div class="bg-dark navcollapse p-4">
             {{#if loggedIn}}
-                <button id="logout" class="btn-no-style">Logout</button>
-                <a class="text-white newpostbutton">User Profile</a>
+                <a href="#" class="text-white logout">Logout</a>
+                <a href="/user" class="text-white userprofilebutton">User Profile</a>
             {{else}}
-                <a href="/login">Login</a>
+                <a class="text-white" href="/login">Login</a>
             {{/if}}
         </div>
     </div>
