@@ -67,3 +67,20 @@ async function newPost(e){
     else alert('Failed to Post.')
 }
 if (document.querySelector(".newpost")) document.querySelector(".newpost").addEventListener("click", newPost)
+
+async function newComment(e){
+    e.preventDefault(e)
+
+    const body = document.querySelector("#commentarea").value.trim()
+    const postId = window.location.href.split('/').pop().replace('?', '')
+    console.log(postId)
+
+    const response = await fetch(`/comments`, {
+        method: 'POST',
+        body: JSON.stringify({body, postId}),
+        headers: {'Content-Type': 'application/json'}
+    })
+    if (response.ok) location.reload()
+    else alert('Failed to Post.')
+}
+if (document.querySelector(".submitcomment")) document.querySelector(".submitcomment").addEventListener("click", newComment)

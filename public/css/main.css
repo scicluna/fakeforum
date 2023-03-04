@@ -44,3 +44,8 @@ body {
 .newpostform>.form-group:nth-child(1){
     width:20%;
 }
+
+.commentarea{
+    width:50%;
+    padding:5px;
+}

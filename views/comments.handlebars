@@ -1,1 +1,13 @@
 {{>post-card plainPost}}
+<form>
+  <div class="form-group commentarea">
+    <label for="commentarea">Example textarea</label>
+    <textarea class="form-control commentarea" id="commentarea" rows="3"></textarea>
+    <button type="submit" class="btn btn-primary mb-2 submitcomment">Submit</button>
+  </div>
+</form>
+<section class="commentcontainer">
+    {{#each plainComments as |comment|}}
+        {{>comment-card}}
+    {{/each}}
+</section>
