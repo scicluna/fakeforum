@@ -11,7 +11,7 @@ router.get('/:user', async (req, res)=>{
 
 
 
-        res.render('userinfo', {userPosts, username})
+        res.render('userinfo', {userPosts, username, loggedIn: req.session.loggedIn})
     }
     catch (err) {
         res.status(500).json({err})
