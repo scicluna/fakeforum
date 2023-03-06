@@ -9,8 +9,6 @@ router.get('/:user', async (req, res)=>{
         const plainData = userData.map(data=>data.get({plain: true}))
         const userPosts = plainData[0].posts
 
-
-
         res.render('userinfo', {userPosts, username, loggedIn: req.session.loggedIn})
     }
     catch (err) {

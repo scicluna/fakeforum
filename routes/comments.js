@@ -13,8 +13,6 @@ router.get('/:postid', async (req, res)=>{
         const plainComments = commentData.map((data)=>data.get({plain: true}))
         const plainPost = originalPost.get({plain:true})
 
-        console.log(plainComments)
-
         res.render('comments', {plainComments, plainPost, loggedIn: req.session.loggedIn})        
     }
     catch (err) {
@@ -24,10 +22,7 @@ router.get('/:postid', async (req, res)=>{
 
 router.post('/', async (req, res) => {
     try{
-        console.log("POSTED")
         const {body, postId} = req.body
-
-        console.log(body, postId, req.session.user, req.session.userid)
 
         const newComment = await Comment.create({
             comment_body:body,

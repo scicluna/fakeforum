@@ -28,7 +28,6 @@ router.post('/', async (req, res)=>{
             user_id: req.session.userid,
             poster_name: plainUsers[parseInt(req.session.userid)-1].user_name
         })
-        console.log(newPost)
         res.redirect('/allposts')
     }
     catch (err){
